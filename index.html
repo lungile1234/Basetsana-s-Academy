@@ -7,122 +7,154 @@
   <style>
     body {
       margin: 0;
-      font-family: "Comic Sans MS", cursive, sans-serif;
-      background: #fdf6f0;
+      font-family: "Poppins", sans-serif;
+      background: #fdfdfd;
       color: #333;
+      line-height: 1.6;
     }
+
     header {
-      background: #ff6b6b;
+      background: linear-gradient(135deg, #ff6b6b, #feca57);
       color: white;
-      padding: 20px;
+      padding: 50px 20px;
       text-align: center;
     }
     header h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 3em;
+      font-weight: bold;
     }
-    nav {
+    header p {
       margin-top: 10px;
+      font-size: 1.2em;
+    }
+
+    nav {
+      background: #ff6b6b;
+      padding: 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     nav a {
       margin: 0 15px;
       text-decoration: none;
       color: white;
       font-weight: bold;
+      transition: color 0.3s;
     }
+    nav a:hover {
+      color: #ffe66d;
+    }
+
     section {
-      padding: 40px 20px;
+      padding: 60px 20px;
       text-align: center;
+      max-width: 1100px;
+      margin: auto;
     }
     section h2 {
       color: #ff6b6b;
+      font-size: 2em;
+      margin-bottom: 20px;
     }
-    .contact {
-      background: #ffe66d;
-      padding: 20px;
-      border-radius: 10px;
-      display: inline-block;
-    }
-    footer {
-      background: #4ecdc4;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
-    .kids-img {
+
+    .hero-img {
       width: 100%;
-      max-width: 600px;
+      max-width: 800px;
       border-radius: 15px;
       margin-top: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     }
+
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 15px;
       margin-top: 20px;
     }
     .gallery img {
       width: 100%;
-      height: 180px;
+      height: 200px;
       object-fit: cover;
       border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
     }
-    form {
-      max-width: 500px;
-      margin: 0 auto;
-      text-align: left;
-      background: #fff;
-      padding: 20px;
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .contact {
+      background: #ffe66d;
+      padding: 25px;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: inline-block;
+      font-size: 1.1em;
+      margin-bottom: 20px;
     }
-    form label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-    form input, form select {
+
+    iframe.map-frame {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      max-width: 600px;
+      height: 300px;
+      border: 0;
+      border-radius: 12px;
+      margin-top: 20px;
     }
-    form button {
-      background: #ff6b6b;
-      color: white;
-      padding: 12px;
+
+    /* === Google Form container === */
+    .form-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    .form-container iframe {
+      width: 100%;
+      min-height: 900px;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1em;
-      width: 100%;
+      border-radius: 12px;
     }
-    form button:hover {
-      background: #ff4757;
+
+    @media (max-width: 600px) {
+      .form-container iframe {
+        min-height: 1200px; /* taller on mobile */
+      }
+    }
+
+    footer {
+      background: #4ecdc4;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Basetsana's Academy</h1>
-    <nav>
-      <a href="#about">About Us</a>
-      <a href="#programs">Programs</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#register">Register</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <p>Shaping bright futures with love, care, and education 🌟</p>
   </header>
+
+  <nav>
+    <a href="#about">About Us</a>
+    <a href="#programs">Programs</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#register">Register</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <section id="about">
     <h2>Welcome to Basetsana's Academy!</h2>
     <p>We provide a safe, fun, and educational environment for children to learn, play, and grow. 
        Our passionate teachers are dedicated to giving your child the best start in life.</p>
     <img src="unnamed.jpg" 
-         alt="Happy Kids" class="kids-img">
+         alt="Happy Kids" class="hero-img">
   </section>
 
   <section id="programs">
@@ -136,34 +168,19 @@
   <section id="gallery">
     <h2>Our Gallery</h2>
     <div class="gallery">
-      <!-- Replace the image links below with your own pictures -->
       <img src="1000068292.jpg" alt="Kids Activity 1">
-      <img src="1000068308.jpg" alt="Kids Activity 2">
-      <img src="1000068309.jpg"alt="Kids Activity 3">
-      <img src="1000068286.jpg" alt="Kids Activity 4">
+      <img src="1000068309.jpg" alt="Kids Activity 2">
+      <img src="1000068286.jpg" alt="Kids Activity 3">
+      <img src="100068308" alt="Kids Activity 4">
     </div>
   </section>
 
   <section id="register">
     <h2>Register Your Child</h2>
-    <form onsubmit="submitForm(event)">
-      <label for="childName">Child's Name:</label>
-      <input type="text" id="childName" name="childName" required>
-
-      <label for="age">Child's Age:</label>
-      <input type="number" id="age" name="age" min="2" max="7" required>
-
-      <label for="parentName">Parent's Name:</label>
-      <input type="text" id="parentName" name="parentName" required>
-
-      <label for="email">Parent's Email:</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="phone">Parent's Phone:</label>
-      <input type="tel" id="phone" name="phone" required>
-
-      <button type="submit">Submit Registration</button>
-    </form>
+    <div class="form-container">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeRF5MyTl2lbSLefR56aQUirPiBM9NcmcXS7PVhcS8jB8z-tA/viewform?embedded=true"
+              frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
   </section>
 
   <section id="contact">
@@ -172,19 +189,11 @@
       <p><strong>Phone:</strong> +27 68 415 8780</p>
       <p><strong>Address:</strong> 2148 Mavi Street, Mohlakeng, Randfontein</p>
     </div>
+    <iframe class="map-frame"
+      src="https://www.google.com/maps?q=2148%20Mavi%20Street,%20Mohlakeng,%20Randfontein&output=embed" 
+      allowfullscreen>
+    </iframe>
   </section>
 
   <footer>
-    <p>&copy; 2023 Basetsana's Academy. All rights reserved.</p>
-  </footer>
-
-  <script>
-    function submitForm(event) {
-      event.preventDefault();
-      alert("🎉 Thank you for registering your child at Basetsana's Academy! We will contact you soon.");
-    }
-  </script>
-</body>
-</html>
-
-
+    <p>&copy; 2025 Basetsan
